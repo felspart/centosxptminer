@@ -1,8 +1,8 @@
 CXX = g++
 CC = cc
-CXXFLAGS = -Wall -Wextra -std=c++0x -O2 -fomit-frame-pointer -ffast-math -flto
+CXXFLAGS = -Wall -Wextra -std=c++0x -O2 -fomit-frame-pointer -ffast-math
 
-CFLAGS = -Wall -Wextra -O2 -fomit-frame-pointer -ffast-math -flto
+CFLAGS = -Wall -Wextra -O2 -fomit-frame-pointer -ffast-math
 # add these for more speed! (if your cpu can do them)
 #-msse2 -msse3 -mssse3 -msse4a -msse2avx -msse4a -msse4.1 -msse4.2 -mavx 
 
@@ -76,7 +76,7 @@ xptMiner/%.o: xptMiner/%.c
 	$(CC) -c $(CFLAGS) $(INCLUDEPATHS) $< -o $@ 
 
 xptminer$(EXTENSION): $(OBJS:xptMiner/%=xptMiner/%) $(JHLIB:xptMiner/jhlib/%=xptMiner/jhlib/%)
-	$(CXX) $(CFLAGS) $(LIBPATHS) $(INCLUDEPATHS) -o $@ $^ $(LIBS) -flto
+	$(CXX) $(CFLAGS) $(LIBPATHS) $(INCLUDEPATHS) -o $@ $^ $(LIBS)
 
 clean:
 	-rm -f xptminer
